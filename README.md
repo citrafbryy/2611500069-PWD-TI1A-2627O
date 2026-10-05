@@ -5,3 +5,7 @@ Nama: Surya Citra Febriyani<br>
 NIM: [2611500069]<br>
 Kelompok: [TI1A]<br>
 ![Logo ISBAL](logoisbal.png)
+
+## Pertemuan
+
+- [Pertemuan 3](pertemuan-03/README.md)

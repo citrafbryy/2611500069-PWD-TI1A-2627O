@@ -58,7 +58,14 @@ body {
 }
 
 main {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
   padding: 24px 0 40px;
+}
+
+#contact {
+  grid-column: 1 / -1;
 }
 
 .card {
@@ -202,5 +209,11 @@ button.secondary:hover {
 
   .card {
     padding: 18px;
+  }
+}
+
+@media (min-width: 768px) {
+  main {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }

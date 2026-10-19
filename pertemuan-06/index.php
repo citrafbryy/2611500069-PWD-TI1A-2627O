@@ -9,8 +9,9 @@
   <body>
     <?php
 // Pengujian awal eksekusi PHP.
-   echo "PHP berhasil dijalankan.";
+   echo "Keluaran menggunakan print.";
 //  ?>
+
     <header class="site-header">
       <div class="container">
         <div class="header-top">

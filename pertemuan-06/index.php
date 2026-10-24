@@ -110,6 +110,8 @@ default:
           <p>Program Studi: <?php echo $namaProdi . " (" . $programStudi . ")"; ?></p>
           <p>Fokus Program Studi: <?php echo $fokusProgramStudi; ?></p>
           <p>Status mahasiswa: <?php echo $statusAktif ? "Aktif" : "Tidak aktif"; ?></p>
+          <p>IPK: <?php echo number_format($ipk, 2, ',', '.'); ?></p>
+          
 
           <h3>Uji Perubahan Semester</h3>
           <p>Masukkan semester lalu kirim untuk memperbarui data profil.</p>

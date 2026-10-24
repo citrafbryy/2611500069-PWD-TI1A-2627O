@@ -180,9 +180,7 @@ default:
         <h2>Kontak</h2>
         <p>
           Kunjungi
-          <a href="https://github.com/<?php echo PROFIL_GITHUB; ?>"
-            >profil GitHub saya</a
-          >.
+          <a target="_blank" href="https://github.com/<?= PROFIL_GITHUB ?>">profil GitHub saya</a>.
         </p>
 
         <form id="contactForm" action="index.php" method="post" novalidate>
@@ -299,7 +297,7 @@ default:
 
     <footer class="site-footer">
       <p>&copy; <?= date("Y") ?> <?php echo $namaMahasiswa; ?> [<?= $nim ?>]</p>
-      
+
       <div class="container">
         <p>&copy; <?php echo date("Y"); ?> <?php echo htmlspecialchars($namaMahasiswa, ENT_QUOTES, "UTF-8"); ?> | NIM <?php echo htmlspecialchars($nim, ENT_QUOTES, "UTF-8"); ?></p>
       </div>

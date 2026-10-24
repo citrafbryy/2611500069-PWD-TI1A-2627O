@@ -58,6 +58,9 @@ echo "<p>Konten yang dihasilkan oleh PHP.</p>";
     <main class="container">
       <section id="home" class="card">
         <h2>Selamat Datang</h2>
+        <p>Halo, saya <strong><?php echo $namaMahasiswa; ?></strong>. Saya sedang mempelajari matakuliah
+       <strong><?php print NAMA_MATA_KULIAH; ?></strong> pada tahun akademik <?php echo $tahunAkademik;
+        ?>.</p>
         <p>
           Halo, saya <strong>Surya Citra Febriyani</strong>. Saya sedang
           mempelajari Pemrograman Web Dasar.

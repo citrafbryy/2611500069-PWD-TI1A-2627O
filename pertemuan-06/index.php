@@ -1,21 +1,43 @@
 <?php
 // P6: PHP dasar dan pemrograman sisi peladen
 // Bagian 1: Variabel dan konstanta
-$nim = "0344300002";
-$namaMahasiswa = "Yohanes Setiawan Japriadi";
-$programStudi = "SI";
+$nim = "2611500069";
+$namaMahasiswa = "Surya Citra Febriyani";
+$programStudi = "Teknik Informatika";
 $tahunAkademik = "2026/2027";
-$semester = 2;
+$semesterAwal = 2;
+$semester = $semesterAwal;
+$semesterError = "";
+if (isset($_GET["semester"])) {
+  $semesterInput = $_GET["semester"];
+  $semesterTerkirim = is_scalar($semesterInput)
+    ? filter_var($semesterInput, FILTER_VALIDATE_INT)
+    : false;
+
+  if ($semesterTerkirim === false || $semesterTerkirim < 1 || $semesterTerkirim > 14) {
+    $semesterError = "Semester harus berupa bilangan bulat antara 1 dan 14.";
+  } else {
+    $semester = $semesterTerkirim;
+  }
+}
 $ipk = 3.75;
 $statusAktif = true;
 $catatanTambahan = null;
 const NAMA_MATA_KULIAH = "Pemrograman Web Dasar";
-const PROFIL_GITHUB = "satpamal";
+const PROFIL_GITHUB = "citrafbryy";
 // Bagian 2: Operator
 $batasSemester = 8;
-$sisaSemester = $batasSemester - $semester;
+$sisaSemester = max(0, $batasSemester - $semester);
 $semesterValid = $semester >= 1 && $semester <= $batasSemester;
 $statusSemester = ($semesterValid && $statusAktif) ? "Sesuai rentang" : "Perlu diperiksa";
+// Bagian 3: Percabangan if-elseif-else
+if ($semester < 3) {
+  $keteranganSemester = "Semester awal";
+} elseif ($semester <= 6) {
+  $keteranganSemester = "Semester menengah";
+} else {
+  $keteranganSemester = "Semester akhir";
+}
 
 ?>
 <!doctype html>
@@ -27,15 +49,6 @@ $statusSemester = ($semesterValid && $statusAktif) ? "Sesuai rentang" : "Perlu d
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <?php
-// Pengujian awal eksekusi PHP.
-   echo "PHP berhasil dijalankan.";
-//  ?>
-  <p>Konten HTML statis.</p>
-<?php
-echo "<p>Konten yang dihasilkan oleh PHP.</p>";
-// ?>
-
     <header class="site-header">
       <div class="container">
         <div class="header-top">
@@ -64,16 +77,12 @@ echo "<p>Konten yang dihasilkan oleh PHP.</p>";
     <main class="container">
       <section id="home" class="card">
         <h2>Selamat Datang</h2>
-        <p>Halo, saya <strong><?php echo $namaMahasiswa; ?></strong>. Saya sedang mempelajari matakuliah
-       <strong><?php print NAMA_MATA_KULIAH; ?></strong> pada tahun akademik <?php echo $tahunAkademik;
+        <p>Halo, saya <strong><?php echo htmlspecialchars($namaMahasiswa, ENT_QUOTES, "UTF-8"); ?></strong>. Saya sedang mempelajari mata kuliah
+       <strong><?php print NAMA_MATA_KULIAH; ?></strong> pada tahun akademik <?php echo htmlspecialchars($tahunAkademik, ENT_QUOTES, "UTF-8");
         ?>.</p>
-        <p>
-          Halo, saya <strong>Surya Citra Febriyani</strong>. Saya sedang
-          mempelajari Pemrograman Web Dasar.
-        </p>
         <img
           src="img/foto-profil.jpeg"
-          alt="Foto profil Surya Citra Febriyani"
+          alt="Foto profil <?php echo htmlspecialchars($namaMahasiswa, ENT_QUOTES, "UTF-8"); ?>"
         />
       </section>
 
@@ -81,15 +90,34 @@ echo "<p>Konten yang dihasilkan oleh PHP.</p>";
         <h2>Tentang Saya</h2>
         <article>
           <h3>Profil Singkat</h3>
-          ...
-          <section id="about">
-           <h2>Tentang Saya</h2>
-           <article>
-            <h3>Profil Singkat</h3>
-            <p>Sisa semester hingga batas: <?php echo $sisaSemester; ?></p>
+          <p>Program Studi: <?php echo htmlspecialchars($programStudi, ENT_QUOTES, "UTF-8"); ?></p>
+          <p>Sisa semester hingga batas <?php echo $batasSemester; ?>: <?php echo $sisaSemester; ?></p>
           <p>Pemeriksaan rentang semester: <?php echo $statusSemester; ?></p>
-          <p>Saya mahasiswa Program Studi Teknik Informatika.</p>
-            
+          <p>Semester: <?php echo $semester . " (" . $keteranganSemester . ")"; ?></p>
+
+          <h3>Uji Perubahan Semester</h3>
+          <p>Masukkan semester lalu kirim untuk memperbarui data profil.</p>
+          <form action="index.php" method="get">
+            <div class="form-group">
+              <label for="semesterProfil">Semester (1-14)</label>
+              <input
+                class="input-form"
+                type="number"
+                id="semesterProfil"
+                name="semester"
+                min="1"
+                max="14"
+                step="1"
+                value="<?php echo $semester; ?>"
+                required
+              />
+            </div>
+            <button type="submit">Perbarui Semester</button>
+          </form>
+          <?php if ($semesterError !== ""): ?>
+            <p class="form-feedback-error" role="alert"><?php echo htmlspecialchars($semesterError, ENT_QUOTES, "UTF-8"); ?></p>
+          <?php endif; ?>
+
           <h3>Target Belajar</h3>
           <ol>
             <li>Memahami struktur HTML5.</li>
@@ -103,12 +131,12 @@ echo "<p>Konten yang dihasilkan oleh PHP.</p>";
         <h2>Kontak</h2>
         <p>
           Kunjungi
-          <a href="https://github.com/citrafbryy/2611500069-PWD-TI1A-2627O"
+          <a href="https://github.com/<?php echo PROFIL_GITHUB; ?>"
             >profil GitHub saya</a
           >.
         </p>
 
-        <form id="contactForm" action="index.html" method="get" novalidate>
+        <form id="contactForm" action="index.php" method="post" novalidate>
           <div class="form-group">
             <label for="nama">Nama Lengkap</label>
             <input
@@ -222,7 +250,7 @@ echo "<p>Konten yang dihasilkan oleh PHP.</p>";
 
     <footer class="site-footer">
       <div class="container">
-        <p>&copy; 2026 Surya Citra Febriyani | NIM 2611500069</p>
+        <p>&copy; <?php echo date("Y"); ?> <?php echo htmlspecialchars($namaMahasiswa, ENT_QUOTES, "UTF-8"); ?> | NIM <?php echo htmlspecialchars($nim, ENT_QUOTES, "UTF-8"); ?></p>
       </div>
     </footer>
     <script src="script.js"></script>

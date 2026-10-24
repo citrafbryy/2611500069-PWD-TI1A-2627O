@@ -38,6 +38,19 @@ if ($semester < 3) {
 } else {
   $keteranganSemester = "Semester akhir";
 }
+$namaProdi = ($programStudi == "SI") ? "Sistem Informasi" : (($programStudi == "TI") ? "Teknik
+Informatika" : "Lainnya");
+// Bagian 4: Percabangan switch-case-default
+switch ($programStudi) {
+case "SI":
+  $fokusProgramStudi = "Sistem informasi dan proses bisnis";
+  break;
+case "TI":
+  $fokusProgramStudi = "Komputasi dan pengembangan perangkat lunak";
+  break;
+default:
+  $fokusProgramStudi = "Belum ditentukan";
+}
 
 ?>
 <!doctype html>
@@ -94,6 +107,9 @@ if ($semester < 3) {
           <p>Sisa semester hingga batas <?php echo $batasSemester; ?>: <?php echo $sisaSemester; ?></p>
           <p>Pemeriksaan rentang semester: <?php echo $statusSemester; ?></p>
           <p>Semester: <?php echo $semester . " (" . $keteranganSemester . ")"; ?></p>
+          <p>Program Studi: <?php echo $namaProdi . " (" . $programStudi . ")"; ?></p>
+          <p>Fokus Program Studi: <?php echo $fokusProgramStudi; ?></p>
+          <p>Status mahasiswa: <?php echo $statusAktif ? "Aktif" : "Tidak aktif"; ?></p>
 
           <h3>Uji Perubahan Semester</h3>
           <p>Masukkan semester lalu kirim untuk memperbarui data profil.</p>

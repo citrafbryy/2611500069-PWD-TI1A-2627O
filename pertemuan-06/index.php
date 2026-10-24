@@ -154,7 +154,7 @@ default:
             case 3:
              echo "Menerapkan operator dan percabangan.";
             break;
-           case 4:
+            case 4:
              echo "Menggunakan perulangan for dan while.";
             break;
          default:
@@ -298,6 +298,8 @@ default:
     </main>
 
     <footer class="site-footer">
+      <p>&copy; <?= date("Y") ?> <?php echo $namaMahasiswa; ?> [<?= $nim ?>]</p>
+      
       <div class="container">
         <p>&copy; <?php echo date("Y"); ?> <?php echo htmlspecialchars($namaMahasiswa, ENT_QUOTES, "UTF-8"); ?> | NIM <?php echo htmlspecialchars($nim, ENT_QUOTES, "UTF-8"); ?></p>
       </div>

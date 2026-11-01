@@ -1,25 +1,35 @@
 <?php
-// P7: penggunaan POST
-if (isset($_GET['nama'])) {
-	$nama = $_GET['nama'];
-	echo "Nama yang diterima: " . htmlspecialchars($nama, ENT_QUOTES, 'UTF-8');
-}
 session_start();
+
+// P7: mengambil nilai POST untuk ditampilkan kembali pada formulir.
+$postString = static function (string $field): string {
+	return isset($_POST[$field]) && is_string($_POST[$field]) ? $_POST[$field] : "";
+};
+
+$namaDariGet = isset($_GET["nama"]) && is_string($_GET["nama"]) ? $_GET["nama"] : "";
+$nama = $postString("nama");
+$email = $postString("email");
+$semesterForm = $postString("semester");
+$tanggal = $postString("tanggal");
+$jenisPesan = $postString("jenis_pesan");
+$prodi = $postString("prodi");
+$pesan = $postString("pesan");
+$minat = isset($_POST["minat"]) && is_array($_POST["minat"])
+	? array_values(array_filter($_POST["minat"], "is_string"))
+	: [];
 
 // P7: menangkap nilai form dan menyimpannya ke session.
 if (($_SERVER["REQUEST_METHOD"] ?? "") === "POST") {
 	foreach (["nama", "email", "semester"] as $field) {
-		if (isset($_POST[$field]) && is_string($_POST[$field])) {
-			$_SESSION[$field] = $_POST[$field];
+		if ($postString($field) !== "") {
+			$_SESSION[$field] = $postString($field);
 		}
 	}
 }
 
-// Nama juga dapat diterima melalui GET untuk latihan P7.
-$namaDariGet = isset($_GET["nama"]) && is_string($_GET["nama"]) ? $_GET["nama"] : null;
-$nama = $namaDariGet ?? ($_SESSION["nama"] ?? "");
-$email = $_SESSION["email"] ?? "";
-$semesterForm = $_SESSION["semester"] ?? "";
+$nama = $nama !== "" ? $nama : ($namaDariGet !== "" ? $namaDariGet : ($_SESSION["nama"] ?? ""));
+$email = $email !== "" ? $email : ($_SESSION["email"] ?? "");
+$semesterForm = $semesterForm !== "" ? $semesterForm : ($_SESSION["semester"] ?? "");
 
 // P6: PHP dasar dan pemrograman sisi peladen
 // Bagian 1: Variabel dan konstanta
@@ -100,7 +110,10 @@ switch ($programStudi) {
 	</header>
 
 	<main>
-		<?php if ($namaDariGet !== null) : ?>
+		<?php if ($namaDariGet !== "") : ?>
+			<p>Nama yang diterima: <?php echo htmlspecialchars($namaDariGet, ENT_QUOTES, 'UTF-8'); ?></p>
+		<?php endif; ?>
+		<?php if ($namaDariGet !== "") : ?>
 			<p>Nama yang diterima: <?php echo htmlspecialchars($namaDariGet, ENT_QUOTES, 'UTF-8'); ?></p>
 		<?php endif; ?>
 
@@ -205,27 +218,27 @@ switch ($programStudi) {
 				<div class="form-group">
 					<label for="tanggal">Tanggal Kunjungan</label><br />
 
-					<input class="input-form" type="date" id="tanggal" name="tanggal" required />
+					<input class="input-form" type="date" id="tanggal" name="tanggal" value="<?php echo htmlspecialchars($tanggal, ENT_QUOTES, 'UTF-8'); ?>" required />
 				</div>
 
 				<div class="form-group">
 					<p>Jenis Pesan</p>
 
-					<input type="radio" id="pertanyaan" name="jenis_pesan" value="pertanyaan" required />
+					<input type="radio" id="pertanyaan" name="jenis_pesan" value="pertanyaan" <?php echo $jenisPesan === "pertanyaan" ? "checked" : ""; ?> required />
 					<label for="pertanyaan">Pertanyaan</label>
 
-					<input type="radio" id="saran" name="jenis_pesan" value="saran" />
+					<input type="radio" id="saran" name="jenis_pesan" value="saran" <?php echo $jenisPesan === "saran" ? "checked" : ""; ?> />
 					<label for="saran">Saran</label>
 				</div>
 
 				<div class="form-group">
 					<p>Topik yang Diminati</p>
 
-					<input type="checkbox" id="minat-html" name="minat" value="HTML" />
-					<label for="minat-html">HTML</label>
+					<input type="checkbox" id="minat-html" name="minat[]" value="HTML" <?php echo in_array("HTML", $minat, true) ? "checked" : ""; ?> />
+          <label for="minat-html">HTML</label>
 
-					<input type="checkbox" id="minat-css" name="minat" value="CSS" />
-					<label for="minat-css">CSS</label>
+          <input type="checkbox" id="minat-css" name="minat[]" value="CSS" <?php echo in_array("CSS", $minat, true) ? "checked" : ""; ?> />
+          <label for="minat-css">CSS</label>
 				</div>
 
 				<div class="form-group">
@@ -233,8 +246,8 @@ switch ($programStudi) {
 
 					<select class="input-form" id="prodi" name="prodi" required>
 						<option value="">-- Pilih Program Studi --</option>
-						<option value="SI">Sistem Informasi</option>
-						<option value="TI">Teknik Informatika</option>
+						<option value="SI" <?php echo $prodi === "SI" ? "selected" : ""; ?>>Sistem Informasi</option>
+						<option value="TI" <?php echo $prodi === "TI" ? "selected" : ""; ?>>Teknik Informatika</option>
 					</select>
 				</div>
 
@@ -247,7 +260,7 @@ switch ($programStudi) {
 						name="pesan"
 						maxlength="300"
 						placeholder="Tulis pesan Anda"
-						required></textarea>
+						required><?php echo htmlspecialchars($pesan, ENT_QUOTES, 'UTF-8'); ?></textarea>
 				</div>
 
 				<button type="submit">Kirim</button>

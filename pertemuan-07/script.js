@@ -24,9 +24,9 @@ const prodiInput = document.getElementById("prodi");
 const pesanInput = document.getElementById("pesan");
 
 contactForm.addEventListener("submit", (event) => {
-  event.preventDefault();
-  formFeedback.className = "form-feedback-error";
+  event .preventDefault();
 
+  
   const nama = namaInput.value.trim();
   const email = emailInput.value.trim();
   const semester = Number(semesterInput.value);
@@ -34,9 +34,14 @@ contactForm.addEventListener("submit", (event) => {
   const jenisPesan = document.querySelector(
     'input[name="jenis_pesan"]:checked',
   );
-  const topikDipilih = document.querySelectorAll('input[name="minat"]:checked');
+  const topikDipilih = document.querySelectorAll('input[name="minat"]:checked,
+  input[name="minat[]"]:checked');
   const prodi = prodiInput.value;
   const pesan = pesanInput.value.trim();
+
+  formFeedback.textContent = "Form berhasil divalidasi.";
+  formFeedback.className = "form-feedback-success";
+  contactForm.submit();
 
   if (nama.length < 3 || nama.length > 50) {
     formFeedback.textContent = "Nama lengkap harus diisi 3 sampai 50 karakter.";
@@ -50,14 +55,8 @@ contactForm.addEventListener("submit", (event) => {
     return;
   }
 
-  if (
-    semesterInput.value === "" ||
-    !Number.isInteger(semester) ||
-    semester < 1 ||
-    semester > 14
-  ) {
-    formFeedback.textContent =
-      "Semester harus diisi dengan bilangan bulat 1 sampai 14.";
+  if (semesterInput.value === "" || semester < 1 || semester > 14) {
+    formFeedback.textContent = "Semester harus diisi dengan angka 1 sampai 14.";
     return;
   }
 
@@ -93,7 +92,6 @@ contactForm.addEventListener("submit", (event) => {
 
   formFeedback.textContent = "Form berhasil divalidasi.";
   formFeedback.className = "form-feedback-success";
-  contactForm.submit();
 });
 
 contactForm.addEventListener("reset", () => {

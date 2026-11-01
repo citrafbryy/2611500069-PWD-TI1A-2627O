@@ -24,8 +24,9 @@ const prodiInput = document.getElementById("prodi");
 const pesanInput = document.getElementById("pesan");
 
 contactForm.addEventListener("submit", (event) => {
-  event.preventDefault();
-
+  event .preventDefault();
+  
+  
   const nama = namaInput.value.trim();
   const email = emailInput.value.trim();
   const semester = Number(semesterInput.value);

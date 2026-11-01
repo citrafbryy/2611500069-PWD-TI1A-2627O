@@ -1,4 +1,7 @@
 <?php
+// P7: menangkap nilai dari input form 
+echo $_GET["nama"];
+
 // P6: PHP dasar dan pemrograman sisi peladen
 // Bagian 1: Variabel dan konstanta
 $nim = "2611500069";

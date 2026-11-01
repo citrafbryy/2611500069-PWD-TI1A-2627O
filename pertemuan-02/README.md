@@ -1,19 +1,19 @@
 # Pertemuan 2 - HTML5 Dasar dan Struktur Semantik
+
 ## Artefak
-- `taklengkap.html` - latihan error tolerance browser.
-- `emmet.html` - latihan Emmet dan struktur HTML5.
-- `index.html` - artefak utama halaman profil P2.
-- `img/foto - profil.jpg` - gambar yang digunakan pada halaman profil.
+- `taklengkap.html` - berkas latihan untuk memahami toleransi browser terhadap struktur HTML yang tidak lengkap.
+- `emmet.html` - berkas latihan penggunaan fitur Emmet dan struktur HTML5.
+- `index.html` - halaman profil utama hasil pengerjaan pertemuan 2.
+- `img/foto-profil.jpg.jpeg` - gambar profil yang digunakan pada halaman.
 
 ## Implementasi
-Pada P2 saya membangun halaman profil menggunakan struktur HTML5 yang valid,
+Pada pertemuan ini, dibuat halaman profil mahasiswa dengan menggunakan struktur HTML5 yang valid dan elemen-elemen semantik seperti `header`, `main`, `section`, `article`, dan `footer`. Halaman ini memuat teks, daftar, tautan, serta gambar profil.
 
-elemen semantik, teks, daftar, tautan, dan gambar.
 ## Validasi HTML
 - Berkas yang divalidasi: `index.html`
-- Galat yang ditemukan: [tuliskan jika ada]
-- Perbaikan yang dilakukan: [tidak ada]
-- Hasil validasi akhir: [Membuat web dengan menambahkan foto profil]
+- Galat yang ditemukan: tidak ditemukan galat yang signifikan pada struktur dasar dari halaman hasil pengerjaan.
+- Perbaikan yang dilakukan: disesuaikan struktur dokument dan penempatan elemen agar terlihat rapi dan valid.
+- Hasil validasi akhir: halaman dapat ditampilkan dengan struktur yang benar dan sesuai kebutuhan praktikum.
 
-## GitHub Pages
-URL: [https://github.com/citrafbryy/2611500069-PWD-TI1A-2627O/tree/main/pertemuan-02]
+## Catatan
+Praktikum ini menjadi dasar untuk materi berikutnya, yaitu formulir HTML dan styling dengan CSS.

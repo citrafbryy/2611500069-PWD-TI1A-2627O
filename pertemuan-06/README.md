@@ -1,26 +1,24 @@
-# P6 - PHP Dasar dan Pemrograman Sisi Peladen
+# Pertemuan 6 - PHP Dasar dan Pemrograman Sisi Server
 
 ## Identitas
-
 - Nama: Surya Citra Febriyani
 - NIM: 2611500069
 - Kelas: TI1A
 
 ## Cara Menjalankan
+Jalankan Laragon, kemudian buka alamat berikut di browser:
+`http://localhost/2611500069-PWD-TI1A-2627O/pertemuan-06/`
 
-Jalankan Laragon, lalu buka `http://localhost/2611500069-PWD-TI1A-2627O/pertemuan-06/`.
-Halaman menggunakan PHP, jadi jangan dibuka langsung sebagai berkas HTML.
+Karena halaman menggunakan PHP, file tidak sebaiknya dibuka langsung sebagai berkas HTML.
 
 ## Fitur
+- Menampilkan profil mahasiswa dengan variabel dan konstanta PHP.
+- Menghitung sisa semester, memeriksa rentang semester, serta menentukan kategori semester menggunakan operator dan percabangan.
+- Form **Uji Perubahan Semester** menggunakan metode GET untuk memperbarui data profil sesuai nilai yang dikirim.
+- Form kontak tetap menggunakan JavaScript untuk validasi sisi klien.
 
-- Menampilkan profil mahasiswa menggunakan variabel dan konstanta PHP.
-- Menghitung sisa semester, memeriksa rentang semester, dan menentukan kategori
-  semester dengan operator serta percabangan.
-- Form **Uji Perubahan Semester** mengirim nilai dengan metode GET. PHP menerima
-  dan memvalidasi bilangan bulat 1-14 sebelum memperbarui data profil.
-- Form kontak menggunakan JavaScript untuk memvalidasi isian dan menampilkan
-  umpan balik di sisi klien.
+## Catatan Penting
+Kolom semester pada form kontak hanya berfungsi untuk validasi pesan kontak. Untuk mengubah semester profil, mahasiswa harus memakai form **Uji Perubahan Semester** yang ada di bagian **Tentang Saya**.
 
-Kolom semester di form kontak hanya untuk validasi pesan kontak. Untuk mengubah
-semester pada profil, gunakan form **Uji Perubahan Semester** di bagian
-**Tentang Saya**.
+## Kesimpulan
+Pertemuan 6 memperkenalkan pemrograman PHP di sisi server, yang menjadi dasar bagi pengolahan data dan interaksi dinamis pada aplikasi web berikutnya.

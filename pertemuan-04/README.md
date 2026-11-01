@@ -1,29 +1,28 @@
 # Pertemuan 4 - CSS3 Layout dan Responsive Web Design
 
 ## Pengembangan
+Pada pertemuan ini, halaman profil dikembangkan dengan fokus pada layout modern dan responsif. Beberapa perubahan utama yang diterapkan adalah:
 
--perubahan yang dilakukan [Mengatur tata letak bagian profil menggunakan CSS Grid.
+- Pengaturan tata letak utama menggunakan CSS Grid.
+- Navigasi diatur dengan Flexbox.
+- Tampilan dibuat satu kolom pada layar kecil dan dua kolom pada layar lebih lebar.
+- Bagian kontak dibuat membentang pada lebar penuh layout.
+- CSS dipisahkan dari file HTML agar struktur markup lebih bersih dan mudah dikelola.
 
-- Tampilan menggunakan satu kolom pada layar di bawah 768 px dan dua kolom mulai 768 px.
-- Bagian Kontak membentang selebar kedua kolom.
-- Navigasi menggunakan Flexbox.]
-
--commit dan push github
-[- Pisahkan CSS dari HTML pada P4
-
-- Terapkan Box Model pada P4
-- Terapkan penataan elemen halaman pada P4
-- Terapkan Flexbox pada navigasi P4
-- Terapkan CSS Grid pada tata letak P4
-- Terapkan desain web responsif P4]
+## Penerapan Teknik CSS
+- Box model diterapkan untuk mengatur margin, padding, border, dan content.
+- Flexbox digunakan pada navigasi.
+- Grid digunakan untuk membagi layout utama.
+- Media query digunakan agar halaman tetap rapi pada berbagai ukuran layar.
 
 ## Pengujian
+- Desktop: ukuran viewport 1366 × 768 px.
+- Perangkat bergerak: ukuran viewport 375 × 812 px.
 
--Perangkat bergerak
-[Ukuran viewport desktop untuk skenario pengujian:1366 × 768 px.]
+### Hasil Uji Visual
+- Pada layar desktop, layout dua kolom aktif sesuai breakpoint yang ditentukan.
+- Pada layar kecil, struktur layout berubah menjadi satu kolom agar tetap nyaman dibaca.
+- Kontak serta elemen utama tetap tertata dengan baik di berbagai ukuran layar.
 
-- Galat dan perbaikan
-  [Desktop (1366 × 768 px): aturan breakpoint min-width: 768px aktif Beranda dan Tentang tersusun dua kolom, sedangkan Kontak membentang di bawah keduanya.
-  Perangkat bergerak (375 × 812 px): aturan dua kolom tidak aktif bagian profil tersusun satu kolom.]
-  -Validasi CSS
-  [Pemeriksaan CSS aturan Grid dan breakpoint sudah tercantum di style.css. Sesuaikan hasil uji visual dengan browser yang digunakan jika ukuran viewport pengujian berbeda.]
+## Validasi
+Pemeriksaan dilakukan terhadap `style.css` agar aturan Grid, Flexbox, dan media query sudah benar dan konsisten dengan tampilan yang dihasilkan di browser.

@@ -1,17 +1,24 @@
-Bukti Belajar P1
-Fungsi: dokumentasi capaian pembelajaran P1
-1. Konsep Dasar Pemrograman Web<br>
-pembuatan dan pengembangan yang dapat diakses melalui internet dengan menggunakan browser<br>
-2. Arsitektur Klien-Peladen<br>
-struktur sistem komputer yang membagi tugas antara perangkat atau program yang meminta layanan klien dan yang menyediakan layanan peladen<br>
-3. HTTP Request dan Response<br>
-komunikasi antara klien melalui website<br>
-4. HTML, CSS, JavaScript, PHP, MySQL<br>
-html untuk membuat web sederhana atau disebut kerangka<br>
-CSS untuk membuat penampilan web lebih menarik<br>
-JavaScript membuat web lebih dinamis<br>
-PHP untuk mengolah data dan menghasilkan konten halaman web di sisi server sebelum ditampilkan ke peramban<br>
-MySQL untuk menyimpan data untuk saling terhubung<br>
-5. Hubungan Antarteknologi<br>
-keterkaitan, interaksi, atau saling ketergantungan antara satu jenis teknologi dengan teknologi lainnya untuk mencapai tujuan tertentu, menciptakan sistem yang lebih pintar, atau melahirkan teknologi baru yang lebih maju.
+# Pertemuan 1 - Konsep Dasar Pemrograman Web
+
+## Tujuan Pembelajaran
+Pada pertemuan ini, mahasiswa diperkenalkan pada dasar-dasar pemrograman web dan pemahaman mengenai teknologi yang digunakan untuk membangun halaman web.
+
+## Bukti Belajar
+1. Konsep dasar pemrograman web
+   - Web merupakan aplikasi yang dibuat untuk dapat diakses melalui internet menggunakan browser.
+2. Arsitektur klien-peladen
+   - Terdapat pembagian tugas antara klien (browser atau perangkat yang meminta layanan) dan peladen (server yang menyediakan data atau layanan).
+3. HTTP request dan response
+   - Proses komunikasi antara browser dan server saat halaman web diminta dan dikirimkan kembali.
+4. Teknologi utama web
+   - HTML: struktur atau kerangka halaman web.
+   - CSS: styling agar tampilan lebih menarik dan rapi.
+   - JavaScript: membuat halaman web lebih interaktif dan dinamis.
+   - PHP: bahasa pemrograman sisi server yang memproses data sebelum ditampilkan ke browser.
+   - MySQL: basis data untuk menyimpan dan mengelola data aplikasi web.
+5. Hubungan antarteknologi
+   - HTML, CSS, JavaScript, PHP, dan database saling terhubung untuk membentuk aplikasi web yang utuh dan fungsional.
+
+## Kesimpulan
+Pemrograman web merupakan integrasi berbagai teknologi yang bekerja bersama agar sebuah website dapat menampilkan informasi, berinteraksi dengan pengguna, dan mengolah data secara efektif.
 

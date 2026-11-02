@@ -1,14 +1,6 @@
-# Pertemuan 8 - Materi Lanjutan Pemrograman Web
+pada p7, saya melakukan:
 
-## Status
-Folder ini masih menunggu hasil pengerjaan dan dokumentasi praktik sesuai modul pertemuan 8.
-
-## Fokus Pembelajaran
-Pada pertemuan ini, mahasiswa melanjutkan pengembangan pemahaman tentang pemrograman web dengan menghubungkan konsep yang sudah dipelajari pada materi sebelumnya.
-
-## Catatan
-- Folder ini dapat digunakan untuk menampung file tugas, script, atau artefak yang dibuat pada pertemuan 8.
-- Jika folder masih kosong, berarti tugas atau documentasi belum ditambahkan.
-
-## Tujuan
-Menyimpan dan mendokumentasikan hasil latihan lanjutan agar struktur repositori tetap terorganisir dan mudah dipelajari.
+1. menyalin artefak P6 untuk menjadi baseline P7
+2. menguji fitur pada P7, hasilnya jalan seperti P6.
+3. meremark event.preventDefault(); pada script.js dan mencoba superglobal $\_GET untuk menangkap nilai yang diisikan pada formulir.
+4. mencoba method post. hasilnya parameter tidak ditampilkan pada url, tetapi menggunakan echo superglobal $\_POST untuk menampilkan nilai dari input form.

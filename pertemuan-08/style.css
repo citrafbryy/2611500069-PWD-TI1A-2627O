@@ -210,6 +210,50 @@ section {
   resize: vertical;
 }
 
+#rencana-kegiatan-mahasiswa .table-wrap,
+#contact .table-wrap {
+  max-width: 100%;
+  margin: 16px 0;
+  overflow-x: auto;
+}
+
+#rencana-kegiatan-mahasiswa table,
+#contact table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #ffffff;
+}
+
+#rencana-kegiatan-mahasiswa th,
+#rencana-kegiatan-mahasiswa td,
+#contact th,
+#contact td {
+  padding: 10px;
+  border: 1px solid #cbd5e1;
+  text-align: left;
+  vertical-align: top;
+}
+
+#rencana-kegiatan-mahasiswa th,
+#contact th {
+  background-color: #eaf0f6;
+}
+
+#rencana-kegiatan-mahasiswa .data-table th,
+#contact .data-table th {
+  width: 35%;
+}
+
+#rencana-kegiatan-mahasiswa .approval-table {
+  min-width: 600px;
+  text-align: center;
+}
+
+#rencana-kegiatan-mahasiswa .approval-table th,
+#rencana-kegiatan-mahasiswa .approval-table td {
+  text-align: center;
+}
+
 #contact button,
 #rencana-kegiatan-mahasiswa button {
   background-color: #003366;

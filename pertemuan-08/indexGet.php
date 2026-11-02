@@ -1,12 +1,34 @@
 <?php
-//P7
-echo $_GET["nama"] . "<br>";
-echo $_GET["email"] . "<br>";
-echo $_GET["semester"] . "<br>";
-echo $_GET["tanggal"] . "<br>";
-echo $_GET["jenis_pesan"] . "<br>";
-echo $_GET["prodi"] . "<br>";
-echo $_GET["pesan"] . "<br>";
+// Contoh pemrosesan data formulir dengan method GET.
+$ambilGet = static function (string $nama): string {
+	$nilai = $_GET[$nama] ?? "";
+	return is_string($nilai) ? trim($nilai) : "";
+};
+
+$dataGet = null;
+if (array_key_exists("nama", $_GET)) {
+	$minatGet = $_GET["minat"] ?? [];
+	if (!is_array($minatGet)) {
+		$minatGet = [$minatGet];
+	}
+	$topikGet = [];
+	foreach ($minatGet as $nilai) {
+		if (is_string($nilai) && trim($nilai) !== "") {
+			$topikGet[] = trim($nilai);
+		}
+	}
+
+	$dataGet = [
+		"Nama Lengkap" => $ambilGet("nama"),
+		"Email" => $ambilGet("email"),
+		"Semester" => $ambilGet("semester"),
+		"Tanggal Kunjungan" => $ambilGet("tanggal"),
+		"Jenis Pesan" => $ambilGet("jenis_pesan"),
+		"Topik yang Diminati" => implode(", ", $topikGet),
+		"Program Studi" => $ambilGet("prodi"),
+		"Pesan" => $ambilGet("pesan"),
+	];
+}
 
 // P6: PHP dasar dan pemrograman sisi peladen
 // Bagian 1: Variabel dan konstanta
@@ -157,7 +179,7 @@ switch ($programStudi) {
 				<a target="_blank" href="https://github.com/<?= PROFIL_GITHUB ?>">profil GitHub saya</a>.
 			</p>
 
-			<form id="contactForm" action="index.php" method="get" novalidate>
+			<form id="contactForm" action="indexGet.php" method="get">
 				<div class="form-group">
 					<label for="nama">Nama Lengkap</label><br />
 
@@ -203,10 +225,10 @@ switch ($programStudi) {
 				<div class="form-group">
 					<p>Topik yang Diminati</p>
 
-					<input type="checkbox" id="minat-html" name="minat" value="HTML" />
+					<input type="checkbox" id="minat-html" name="minat[]" value="HTML" />
 					<label for="minat-html">HTML</label>
 
-					<input type="checkbox" id="minat-css" name="minat" value="CSS" />
+					<input type="checkbox" id="minat-css" name="minat[]" value="CSS" />
 					<label for="minat-css">CSS</label>
 				</div>
 
@@ -236,6 +258,24 @@ switch ($programStudi) {
 				<button type="reset">Batal</button>
 				<p id="formFeedback"></p>
 			</form>
+
+			<?php if (is_array($dataGet)): ?>
+				<article class="submission-result" aria-live="polite">
+					<h3>Data Formulir yang Dikirim</h3>
+					<div class="table-wrap">
+						<table class="data-table">
+							<tbody>
+								<?php foreach ($dataGet as $label => $nilai): ?>
+									<tr>
+										<th scope="row"><?= htmlspecialchars($label, ENT_QUOTES | ENT_SUBSTITUTE, "UTF-8") ?></th>
+										<td><?= nl2br(htmlspecialchars($nilai, ENT_QUOTES | ENT_SUBSTITUTE, "UTF-8")) ?></td>
+									</tr>
+								<?php endforeach; ?>
+							</tbody>
+						</table>
+					</div>
+				</article>
+			<?php endif; ?>
 		</section>
 	</main>
 

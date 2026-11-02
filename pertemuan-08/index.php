@@ -106,7 +106,7 @@ switch ($programStudi) {
 			<ul id="navMenu">
 				<li><a href="#home">Beranda</a></li>
 				<li><a href="#about">Tentang</a></li>
-				<li><a href="#rencana-kegiatan">Rencana Kegiatan</a></li>
+				<li><a href="#rencana-kegiatan-mahasiswa">Rencana Kegiatan</a></li>
 				<li><a href="#contact">Kontak</a></li>
 			</ul>
 		</nav>
@@ -175,15 +175,55 @@ switch ($programStudi) {
 			</article>
 		</section>
 
-		<section id="rencana-kegiatan">
-			<h2>Rencana Kegiatan</h2>
+       <section id="rencana-kegiatan-mahasiswa">
+
+			 
+			<h2>Rencana Kegiatan Mahasiswa</h2>
 			<ol>
 				<li>Mengulas kembali variabel, operator, percabangan, dan perulangan PHP.</li>
 				<li>Berlatih mengolah data formulir menggunakan method POST dan session.</li>
 				<li>Mengembangkan halaman profil mahasiswa dengan validasi formulir yang lebih baik.</li>
 			</ol>
-		</section>
 
+			<form id="rencanaKegiatanForm" action="index.php" method="get">
+				<div class="form-group">
+					<label for="namaKegiatan">Nama Kegiatan</label><br />
+					<input class="input-form" type="text" id="namaKegiatan" name="nama_kegiatan" required />
+				</div>
+
+				<div class="form-group">
+					<label for="kategoriKegiatan">Kategori Kegiatan</label><br />
+					<select class="input-form" id="kategoriKegiatan" name="kategori_kegiatan" required>
+						<option value="">-- Pilih Kategori --</option>
+						<option value="akademik">Akademik</option>
+						<option value="organisasi">Organisasi</option>
+						<option value="sosial">Sosial</option>
+						<option value="olahraga">Olahraga</option>
+						<option value="seni-budaya">Seni dan Budaya</option>
+						<option value="lainnya">Lainnya</option>
+					</select>
+				</div>
+
+				<div class="form-group">
+					<label for="tanggalPelaksanaan">Tanggal Pelaksanaan</label><br />
+					<input class="input-form" type="date" id="tanggalPelaksanaan" name="tanggal_pelaksanaan" required />
+				</div>
+
+				<div class="form-group">
+					<label for="lokasiKegiatan">Lokasi Kegiatan</label><br />
+					<input class="input-form" type="text" id="lokasiKegiatan" name="lokasi_kegiatan" required />
+				</div>
+
+				<div class="form-group">
+					<label for="deskripsiKegiatan">Deskripsi Kegiatan</label><br />
+					<textarea class="input-form" id="deskripsiKegiatan" name="deskripsi_kegiatan" rows="4" required></textarea>
+				</div>
+
+				<button type="submit">Kirim</button>
+				<button type="reset">Batal</button>
+			</form>
+		</section>
+				
 		<section id="contact">
 			<h2>Kontak</h2>
 

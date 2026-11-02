@@ -1,8 +1,7 @@
-pada p7, saya melakukan:
+# Pertemuan 08
 
-1. menyalin artefak P6 untuk menjadi baseline P7
-2. menguji fitur pada P7, hasilnya jalan seperti P6.
-3. meremark event.preventDefault(); pada script.js dan mencoba superglobal $\_GET untuk menangkap nilai yang diisikan pada formulir.
-4. mencoba method post. hasilnya parameter tidak ditampilkan pada url, tetapi menggunakan echo superglobal $\_POST untuk menampilkan nilai dari input form.
+Menambahkan formulir **Rencana Kegiatan Mahasiswa** dengan kategori Akademik, Penelitian, Kepanitiaan, Olahraga, Seni Budaya, dan Keagamaan. Data dikirim dengan POST, diperiksa di JavaScript dan PHP, lalu ditampilkan kembali setelah redirect. Input dirapikan dengan `trim()` dan output diamankan dengan `htmlspecialchars()`.
 
-Pada P8, formulir Rencana Kegiatan Mahasiswa menggunakan method POST. Data divalidasi di sisi klien dengan JavaScript dan di sisi peladen dengan PHP, dinormalisasi menggunakan `trim()`, lalu disimpan dalam session dengan pola Post-Redirect-Get (PRG). Data yang ditampilkan kembali di-escape menggunakan `htmlspecialchars()`. Halaman `indexGet.php` tetap digunakan sebagai contoh formulir GET dan menampilkan data dengan aman.
+Formulir Kontak tetap tersedia. `indexGet.php` digunakan untuk contoh formulir GET.
+
+Pemeriksaan kode dan `git diff --check` sudah dilakukan. Pengujian lewat browser dan PHP lint belum dilakukan.

@@ -31,11 +31,11 @@ if (activityForm) {
   );
   const kategoriValid = [
     "akademik",
-    "organisasi",
-    "sosial",
+    "penelitian",
+    "kepanitiaan",
     "olahraga",
     "seni-budaya",
-    "lainnya",
+    "keagamaan",
   ];
   const hitungKarakter = (nilai) => Array.from(nilai).length;
 

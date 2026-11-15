@@ -1,10 +1,7 @@
 <?php
 session_start();
 
-function bersihkan($teks) {
-	return htmlspecialchars($teks ?? "", ENT_QUOTES, "UTF-8");
-}
-
+include("fungsi.php");
 
 echo ("<h1>hai disana</h1>");
 echo"<script>
@@ -280,16 +277,16 @@ switch ($programStudi) {
 			<?php if (isset($_SESSION["nama"])): ?>
 				<article id="hasilKontak" class="submission-result" aria-live="polite">
 					<h3>Data Formulir yang Dikirim</h3>
-					<p><strong>Nama Lengkap:</strong> <?= htmlspecialchars($_SESSION["nama"] ?? "", ENT_QUOTES, "UTF-8") ?></p>
-					<p><strong>Email:</strong> <?= htmlspecialchars($_SESSION["email"] ?? "", ENT_QUOTES, "UTF-8") ?></p>
-					<p><strong>Semester:</strong> <?= htmlspecialchars($_SESSION["semester"] ?? "", ENT_QUOTES, "UTF-8") ?></p>
-					<p><strong>Tanggal Kunjungan:</strong> <?= htmlspecialchars($_SESSION["tanggal"] ?? "", ENT_QUOTES, "UTF-8") ?></p>
-					<p><strong>Jenis Pesan:</strong> <?= htmlspecialchars($_SESSION["jenis_pesan"] ?? "", ENT_QUOTES, "UTF-8") ?></p>
+					<p><strong>Nama Lengkap:</strong> <?= bersihkan($_SESSION["nama"])  ?></p>
+					<p><strong>Email:</strong> <?= bersihkan($_SESSION["email"])?></p>
+					<p><strong>Semester:</strong> <?= bersihkan($_SESSION["semester"]) ?></p>
+					<p><strong>Tanggal Kunjungan:</strong> <?= bersihkan($_SESSION["tanggal"]) ?></p>
+					<p><strong>Jenis Pesan:</strong> <?= bersihkan($_SESSION["jenis_pesan"]) ?></p>
 					<p><strong>Topik yang Diminati:</strong>
-						<?= htmlspecialchars(implode(", ", $_SESSION["minat"] ?? []), ENT_QUOTES, "UTF-8") ?>
+						<?= bersihkan(implode(", ", $_SESSION["minat"])) ?>
 					</p>
-					<p><strong>Program Studi:</strong> <?= htmlspecialchars($_SESSION["prodi"] ?? "", ENT_QUOTES, "UTF-8") ?></p>
-					<p><strong>Pesan:</strong> <?= nl2br(htmlspecialchars($_SESSION["pesan"] ?? "", ENT_QUOTES, "UTF-8")) ?></p>
+					<p><strong>Program Studi:</strong> <?= bersihkan($_SESSION["prodi"]) ?></p>
+					<p><strong>Pesan:</strong> <?= nl2br(bersihkan($_SESSION["pesan"])) ?></p>
 				</article>
 			<?php endif; ?>
 		</section>
